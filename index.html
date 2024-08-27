@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Company</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #00ff00;
+            /* Pixel Green */
+            --secondary-color: #000000;
+            /* Background */
+            --text-color: #ffffff;
+            /* Text Color */
+            --card-border-color: #00ff00;
+            /* Card Border */
+            --card-shadow-color: rgba(0, 255, 0, 0.5);
+            /* Card Shadow */
+        }
+
+        body {
+            font-family: 'Press Start 2P', cursive;
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #222;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .navbar-brand {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-color);
+            font-size: 1.1rem;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .hero-section {
+            background-image: url('bg-image.jpg');
+            filter: blur(90);
+            object-fit: cover;
+            color: var(--text-color);
+            text-align: center;
+            padding: 100px 0;
+            height: 90vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section h1,
+        .hero-section p {
+            text-shadow: 2px 2px var(--primary-color);
+        }
+
+        .btn-light {
+            background-color: #222;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-light:hover {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+            color: var(--primary-color);
+            text-shadow: 1px 1px var(--secondary-color);
+        }
+
+        .card {
+            border: 2px solid var(--card-border-color);
+            border-radius: 0;
+            box-shadow: 0 0 10px var(--card-shadow-color);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .team-member {
+            transition: transform 0.3s;
+        }
+
+        .team-member img{
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+
+        }
+
+        .team-member:hover {
+            transform: scale(1.05);
+        }
+
+        .footer {
+            background-color: #222;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 3px solid var(--primary-color);
+        }
+
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .social-icons a {
+            margin: 0 15px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #00cc00;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">PixelCompany</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#team">Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- <button id="themeSwitcher" class="btn">⚙️</button> -->
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section d-flex align-items-center justify-content-center">
+        <div class="container text-center">
+            <h1>Welcome to PixelCompany</h1>
+            <p>Your Gateway to Retro Innovation</p>
+            <a href="#contact" class="btn btn-light">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3>Who We Are</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Phasellus imperdiet quam
+                        at libero iaculis, at fringilla eros vehicula.</p>
+                </div>
+                <div class="col-lg-6">
+                    <h3>Our Mission</h3>
+                    <p>Integer ornare mi in quam vehicula, sit amet viverra mauris condimentum. Cras nec nulla vitae
+                        turpis tincidunt mollis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section bg-dark">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Service 1</h5>
+                            <p class="card-text">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                                enim ad minim veniam.</p>
+                            <a href="#" class="btn btn-outline-dark">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Service 2</h5>
+                            <p class="card-text">Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit.</p>
+                            <a href="#" class="btn btn-outline-dark">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Service 3</h5>
+                            <p class="card-text">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                                officia deserunt mollit anim id est laborum.</p>
+                            <a href="#" class="btn btn-outline-dark">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Team</h2>
+            <div class="row">
+                <div class="col-md-3 text-center team-member">
+                    <img src="https://avatars.akamai.steamstatic.com/689748a0c1ed55c9dc3bcf95e0ff31639261a8de_full.jpg" alt="Team Member"
+                        class="img-fluid rounded-circle mb-3">
+                    <h5>John Doe</h5>
+                    <p>CEO</p>
+                </div>
+                <div class="col-md-3 text-center team-member">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzqeSMfwdSNCqkdhglwrErkpjImzU0VialsREPyEJWl64705ysP9qILsyOl8KLYzbggXM&usqp=CAU" alt="Team Member"
+                        class="img-fluid rounded-circle mb-3">
+                    <h5>Jane Smith</h5>
+                    <p>CTO</p>
+                </div>
+                <div class="col-md-3 text-center team-member">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkg1gJY90rjD5ZZagRGwVWrj2KeqsRR5AlLDb55Tp5E96M13QpCvTE69C8Qj5v-Nl_eX4&usqp=CAU" alt="Team Member"
+                        class="img-fluid rounded-circle mb-3">
+                    <h5>Emily Johnson</h5>
+                    <p>COO</p>
+                </div>
+                <div class="col-md-3 text-center team-member">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNoHbe7ZPVnEpooVO0XbNQE-RcQCCBEG8WN7qZkmCexY5CWMuoz7AYeU_XhdekvuFvzu0&usqp=CAU" alt="Team Member"
+                        class="img-fluid rounded-circle mb-3">
+                    <h5>Michael Brown</h5>
+                    <p>CFO</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-dark">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Get in Touch</h3>
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-light">Send Message</button>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <h3>Contact Information</h3>
+                    <ul class="list-unstyled">
+                        <li><strong>Address:</strong> 123 Street, City, Country</li>
+                        <li><strong>Phone:</strong> +123 456 7890</li>
+                        <li><strong>Email:</strong> info@pixelcompany.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 <a href="#">PixelCompany</a>. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="#" class="text-success"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-success"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-success"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"></script>
+
+    <script>
+        document.getElementById('themeSwitcher').addEventListener('click', () => {
+            const root = document.documentElement;
+
+            // Ambil nilai variabel CSS saat ini
+            const currentPrimaryColor = getComputedStyle(root).getPropertyValue('--primary-color').trim();
+
+            // Ganti warna tema
+            if (currentPrimaryColor === '#00ff00') {
+                root.style.setProperty('--primary-color', '#ff5733'); // Contoh warna baru
+                root.style.setProperty('--secondary-color', '#1c1c1c');
+                root.style.setProperty('--text-color', '#e5e5e5');
+                root.style.setProperty('--card-border-color', '#ff5733');
+                root.style.setProperty('--card-shadow-color', 'rgba(255, 87, 51, 0.5)');
+            } else {
+                root.style.setProperty('--primary-color', '#00ff00');
+                root.style.setProperty('--secondary-color', '#000000');
+                root.style.setProperty('--text-color', '#ffffff');
+                root.style.setProperty('--card-border-color', '#00ff00');
+                root.style.setProperty('--card-shadow-color', 'rgba(0, 255, 0, 0.5)');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

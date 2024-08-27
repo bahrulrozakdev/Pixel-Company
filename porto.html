@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Terminal Ubuntu</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+        }
+        .terminal {
+            padding: 20px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #000;
+            height: 600px; /* Increased height */
+            overflow-y: auto;
+            margin: 20px;
+            position: relative;
+        }
+        .prompt {
+            color: #00ff00;
+            display: inline;
+        }
+        .command {
+            color: #d4d4d4;
+            display: inline;
+        }
+        .command-key {
+            color: #ff0000;
+        }
+        #input {
+            background: transparent;
+            border: none;
+            color: #d4d4d4;
+            width: 100%;
+            outline: none;
+            font-family: 'Courier New', Courier, monospace;
+            animation: blink-caret 0.75s step-end infinite;
+        }
+        @keyframes blink-caret {
+            from, to {
+                border-color: transparent;
+            }
+            50% {
+                border-color: #00ff00;
+            }
+        }
+        pre {
+            white-space: pre-wrap; /* Preserve whitespace and line breaks */
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="terminal">
+                    <p class="prompt">bahrul@portfolio:~$</p>
+                    <p class="command">Welcome to Bahrul Rozak's portfolio!</p>
+                    <p class="command">Type <span class="command-key">help</span> to see available commands.</p>
+                    <p class="prompt">bahrul@portfolio:~$ <input type="text" id="input" autofocus></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies (Popper.js) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const input = document.getElementById('input');
+            const terminal = document.querySelector('.terminal');
+            
+            input.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter') {
+                    handleCommand(input.value);
+                    input.value = '';
+                    event.preventDefault();
+                }
+            });
+
+            function handleCommand(command) {
+                const p = document.createElement('p');
+                p.className = 'command fade-in';
+                p.innerHTML = `bahrul@portfolio:~$ ${command}`;
+                terminal.appendChild(p);
+                
+                const response = getCommandResponse(command);
+                if (response) {
+                    const responseP = document.createElement('pre');
+                    responseP.className = 'command fade-in';
+                    responseP.innerText = response;
+                    terminal.appendChild(responseP);
+                }
+                
+                terminal.scrollTop = terminal.scrollHeight;
+            }
+
+            function getCommandResponse(command) {
+                switch (command.trim()) {
+                    case 'help':
+                        return `Available commands:
+help        - List all available commands
+about       - Learn more about me
+contact     - Get contact information
+projects    - View my projects
+skills      - See my skills
+experience  - Check my work experience
+resume      - Download my resume
+bahrul      - Read a brief about me
+education   - My educational background
+testimonials - Read testimonials from clients and colleagues
+tools       - List of tools I use`;
+                    case 'about':
+                        return `I am Bahrul Rozak, a web developer specializing in frontend technologies. I create interactive and responsive websites with a passion for clean code and innovative solutions. My focus is on delivering high-quality user experiences and solving complex problems with effective, elegant solutions.`;
+                    case 'contact':
+                        return `You can reach me via email at bahrul@example.com or connect with me on LinkedIn at [LinkedIn Profile](https://linkedin.com/in/bahrulrozak). I'm always open to discussing new opportunities or collaborations.`;
+                    case 'projects':
+                        return `1. Project A: A web application built with React and Node.js. Features include real-time data processing and user authentication.
+2. Project B: An e-commerce site using Angular and Firebase. Includes a custom payment gateway and real-time inventory management.
+3. Project C: A portfolio website using Bootstrap and custom CSS. Showcases my work and skills in a clean, responsive design.
+4. Project D: A mobile app using Flutter that helps users track their fitness goals and progress.
+5. Project E: A machine learning project that predicts stock prices using Python and TensorFlow.`;
+                    case 'skills':
+                        return `Skills:
+1. HTML, CSS, JavaScript
+2. React, Angular, Vue.js
+3. Node.js, Express
+4. Git, Docker, CI/CD
+5. Python, TensorFlow
+6. SQL, MongoDB
+7. RESTful APIs, GraphQL`;
+                    case 'experience':
+                        return `Experience:
+1. Web Developer at Company X (2022 - Present): Leading frontend development for various projects, enhancing user interfaces and experiences.
+2. Frontend Developer at Company Y (2020 - 2022): Developed dynamic web applications and collaborated closely with design teams.
+3. Intern at Company Z (2019 - 2020): Assisted in the development of web features and learned best practices in coding and project management.
+4. Freelance Developer (2018 - 2019): Worked on multiple client projects, ranging from small business websites to complex web applications.`;
+                    case 'resume':
+                        return `Resume available at: [resume-link.pdf](https://example.com/resume-link.pdf). For a detailed overview of my career and skills, please refer to this document.`;
+                    case 'bahrul':
+                        return `Bahrul Rozak is a passionate web developer with extensive experience in creating dynamic and user-friendly web applications. He enjoys solving complex problems, learning new technologies, and contributing to innovative projects.`;
+                    case 'education':
+                        return `Education:
+1. Bachelor of Computer Science, University ABC (2014 - 2018)
+2. Certifications:
+   - Full Stack Web Development, XYZ Academy
+   - Advanced JavaScript, Online Course
+   - Data Science with Python, Online Course`;
+                    case 'testimonials':
+                        return `Testimonials:
+1. "Bahrul’s expertise in frontend development was crucial to the success of our project. His attention to detail and commitment to quality are commendable." – Client A
+2. "An excellent team player with great problem-solving skills. Bahrul’s contributions significantly improved our project’s user interface." – Colleague B
+3. "Bahrul has a deep understanding of web technologies and always delivers high-quality work on time." – Manager C`;
+                    case 'tools':
+                        return `Tools I Use:
+1. Code Editors: Visual Studio Code, Sublime Text
+2. Version Control: Git, GitHub, GitLab
+3. Design: Figma, Adobe XD
+4. Deployment: Netlify, Vercel, AWS
+5. Collaboration: Slack, Trello, Asana
+6. Testing: Jest, Mocha, Cypress`;
+                    default:
+                        return 'Command not found. Type "help" to see available commands.';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
